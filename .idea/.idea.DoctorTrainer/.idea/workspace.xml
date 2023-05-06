@@ -5,11 +5,28 @@
     <projectFile profileName="IIS Express">DoctorTrainer/DoctorTrainer.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f1389bf0-d686-4637-b600-c907e3cf22a7" name="Changes" comment="" />
+    <list default="true" id="f1389bf0-d686-4637-b600-c907e3cf22a7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/DoctorTrainer/Controllers/ImagesController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DoctorTrainer/DTO/ImageDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DoctorTrainer/Entity/ImageData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DoctorTrainer/Repository/ImageDataMockRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DoctorTrainer/Service/ImageDataService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DoctorTrainer/Service/ImageService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DoctorTrainer/Shared/Category.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DoctorTrainer/Shared/Circle.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DoctorTrainer/Shared/ImageType.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DoctorTrainer/Shared/Organ.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.DoctorTrainer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DoctorTrainer/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DoctorTrainer/Controllers/ExpertController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DoctorTrainer/Controllers/ExpertController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DoctorTrainer/WeatherForecast.cs" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/227ed75384c24c09bd6a4ae4ff4c1534a23898/45/d72bba49/Void.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -19,14 +36,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.DoctorTrainer">
     <configuration name="DoctorTrainer" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/DoctorTrainer/DoctorTrainer.csproj" />
@@ -68,13 +85,26 @@
       <option name="presentableId" value="Default" />
       <updated>1683305771786</updated>
       <workItem from="1683305785436" duration="463000" />
+      <workItem from="1683372405646" duration="7595000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
