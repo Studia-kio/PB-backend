@@ -19,7 +19,7 @@ public class ImagesController : ControllerBase
 
     [HttpGet]
     [Route("/api/images/{imgId}")]
-    [AllowAnonymous]
+    [Authorize]
     public JsonResult GetImage(long imgId)
     {
         string url = _imageService.GetImageUrl(imgId);
@@ -32,7 +32,7 @@ public class ImagesController : ControllerBase
 
     [HttpPost]
     [Route("/api/images")]
-    [AllowAnonymous]
+    [Authorize(Roles = "Expert,Admin")]
     public async Task<JsonResult> AddImage(ImageDto request)
     {
         if (request == null || request.Bytes == null)
@@ -53,7 +53,7 @@ public class ImagesController : ControllerBase
 
     [HttpDelete]
     [Route("/api/images/{imgId}")]
-    [AllowAnonymous]
+    [Authorize(Roles = "Expert,Admin")]
     public JsonResult DeleteImage(long imgId)
     {
         if (_imageService.GetImageUrl(imgId).IsNullOrEmpty())

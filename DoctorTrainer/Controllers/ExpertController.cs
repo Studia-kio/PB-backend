@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace DoctorTrainer.Controllers;
 
 [ApiController]
+[Authorize(Roles = "Admin,Expert")]
 public class ExpertController : ControllerBase
 {
     private readonly ImageDataService _imageDataService;
@@ -19,7 +20,6 @@ public class ExpertController : ControllerBase
 
     [HttpGet]
     [Route("/api/expert/{imgId}")]
-    [AllowAnonymous]
     public JsonResult GetImageData(long imgId)
     {
         ImageData? imageData = _imageDataService.FindImageData(imgId);
@@ -27,21 +27,22 @@ public class ExpertController : ControllerBase
         {
             return new JsonResult(HttpStatusCode.NotFound);
         }
+
         ImageDataDto response = ImageDataDto.EntityToDtoMapper(imageData);
         return new JsonResult(response);
     }
 
     [HttpPost]
     [Route("/api/expert")]
-    [AllowAnonymous]
     public JsonResult AddImageData(ImageDataDto request)
     {
-        throw new NotImplementedException();
+        ImageData data = ImageDataDto.DtoToEntityMapper(request);
+        _imageDataService.SaveImageData(data);
+        return new JsonResult(HttpStatusCode.OK);
     }
 
     [HttpPut]
     [Route("/api/expert/{imgId}")]
-    [AllowAnonymous]
     public JsonResult UpdateImageData(long imgId, ImageDataDto request)
     {
         throw new NotImplementedException();
@@ -49,9 +50,16 @@ public class ExpertController : ControllerBase
 
     [HttpDelete]
     [Route("/api/expert/{imgId}")]
-    [AllowAnonymous]
     public JsonResult DeleteImageData(long imgId)
     {
-        throw new NotImplementedException();
+        ImageData? data = _imageDataService.FindImageData(imgId);
+        if (data == null)
+        {
+            return new JsonResult(HttpStatusCode.NotFound);
+        }
+
+        _imageDataService.DeleteImageData(imgId);
+        return new JsonResult(HttpStatusCode.OK);
     }
+    
 }

@@ -6,27 +6,47 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f1389bf0-d686-4637-b600-c907e3cf22a7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/DoctorTrainer/Controllers/ImagesController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DoctorTrainer/DTO/ImageDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DoctorTrainer/Entity/ImageData.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DoctorTrainer/Repository/ImageDataMockRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DoctorTrainer/Service/ImageDataService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DoctorTrainer/Service/ImageService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DoctorTrainer/Shared/Category.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DoctorTrainer/Shared/Circle.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DoctorTrainer/Shared/ImageType.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DoctorTrainer/Shared/Organ.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DoctorTrainer/Controllers/LoginController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DoctorTrainer/DTO/User/LoginRequest.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DoctorTrainer/Entity/User.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DoctorTrainer/Repository/UserRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DoctorTrainer/Service/UserService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DoctorTrainer/Shared/UserRole.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DoctorTrainer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DoctorTrainer/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DoctorTrainer/Controllers/ExpertController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DoctorTrainer/Controllers/ExpertController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DoctorTrainer/WeatherForecast.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DoctorTrainer/Controllers/ImagesController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DoctorTrainer/Controllers/ImagesController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DoctorTrainer/DTO/ImageDataDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DoctorTrainer/DTO/ImageDataDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DoctorTrainer/Entity/ImageData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DoctorTrainer/Entity/ImageData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DoctorTrainer/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DoctorTrainer/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DoctorTrainer/Repository/ImageDataMockRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DoctorTrainer/Repository/ImageDataMockRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DoctorTrainer/Service/ImageService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DoctorTrainer/Service/ImageService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DoctorTrainer/bin/Debug/net6.0/DoctorTrainer.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DoctorTrainer/bin/Debug/net6.0/DoctorTrainer.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DoctorTrainer/bin/Debug/net6.0/DoctorTrainer.exe" beforeDir="false" afterPath="$PROJECT_DIR$/DoctorTrainer/bin/Debug/net6.0/DoctorTrainer.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DoctorTrainer/bin/Debug/net6.0/DoctorTrainer.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/DoctorTrainer/bin/Debug/net6.0/DoctorTrainer.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DoctorTrainer/obj/Debug/net6.0/DoctorTrainer.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/DoctorTrainer/obj/Debug/net6.0/DoctorTrainer.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DoctorTrainer/obj/Debug/net6.0/DoctorTrainer.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/DoctorTrainer/obj/Debug/net6.0/DoctorTrainer.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DoctorTrainer/obj/Debug/net6.0/DoctorTrainer.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/DoctorTrainer/obj/Debug/net6.0/DoctorTrainer.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DoctorTrainer/obj/Debug/net6.0/DoctorTrainer.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/DoctorTrainer/obj/Debug/net6.0/DoctorTrainer.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DoctorTrainer/obj/Debug/net6.0/DoctorTrainer.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/DoctorTrainer/obj/Debug/net6.0/DoctorTrainer.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DoctorTrainer/obj/Debug/net6.0/DoctorTrainer.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DoctorTrainer/obj/Debug/net6.0/DoctorTrainer.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DoctorTrainer/obj/Debug/net6.0/DoctorTrainer.genruntimeconfig.cache" beforeDir="false" afterPath="$PROJECT_DIR$/DoctorTrainer/obj/Debug/net6.0/DoctorTrainer.genruntimeconfig.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DoctorTrainer/obj/Debug/net6.0/DoctorTrainer.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/DoctorTrainer/obj/Debug/net6.0/DoctorTrainer.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DoctorTrainer/obj/Debug/net6.0/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/DoctorTrainer/obj/Debug/net6.0/apphost.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DoctorTrainer/obj/Debug/net6.0/ref/DoctorTrainer.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DoctorTrainer/obj/Debug/net6.0/ref/DoctorTrainer.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DoctorTrainer/obj/Debug/net6.0/refint/DoctorTrainer.dll" beforeDir="false" afterPath="$PROJECT_DIR$/DoctorTrainer/obj/Debug/net6.0/refint/DoctorTrainer.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DoctorTrainer/obj/DoctorTrainer.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/DoctorTrainer/obj/DoctorTrainer.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DoctorTrainer/obj/DoctorTrainer.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/DoctorTrainer/obj/DoctorTrainer.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DoctorTrainer/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/DoctorTrainer/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DoctorTrainer/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/DoctorTrainer/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DoctorTrainer/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/DoctorTrainer/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DoctorTrainer/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/DoctorTrainer/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DoctorTrainer/obj/staticwebassets.pack.sentinel" beforeDir="false" afterPath="$PROJECT_DIR$/DoctorTrainer/obj/staticwebassets.pack.sentinel" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/global.json" beforeDir="false" afterPath="$PROJECT_DIR$/global.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/227ed75384c24c09bd6a4ae4ff4c1534a23898/45/d72bba49/Void.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -36,14 +56,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "settings.editor.selected.configurable": "preferences.CppConfiguration",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\jakub\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache",
+      "C:\\Users\\jakub\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache",
+      "C:\\Users\\jakub\\AppData\\Local\\Symbols\\src"
+    ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected=".NET Launch Settings Profile.DoctorTrainer">
     <configuration name="DoctorTrainer" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/DoctorTrainer/DoctorTrainer.csproj" />
@@ -86,6 +114,7 @@
       <updated>1683305771786</updated>
       <workItem from="1683305785436" duration="463000" />
       <workItem from="1683372405646" duration="7595000" />
+      <workItem from="1683384194538" duration="7405000" />
     </task>
     <servers />
   </component>
@@ -107,5 +136,28 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/DoctorTrainer/Controllers/LoginController.cs</url>
+          <line>90</line>
+          <properties documentPath="C:\Users\jakub\RiderProjects\PB-backend\DoctorTrainer\Controllers\LoginController.cs" initialLine="70" containingFunctionPresentation="method 'Authenticate'">
+            <startOffsets>
+              <option value="2870" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2942" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

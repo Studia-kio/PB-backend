@@ -4,6 +4,7 @@ namespace DoctorTrainer.Repository;
 
 public class ImageDataMockRepository
 {
+    private static long _currentId = 0;
     private List<ImageData> _imageDataSet;
 
     public ImageDataMockRepository()
@@ -17,6 +18,7 @@ public class ImageDataMockRepository
 
     public void Save(ImageData imageData)
     {
+        imageData.ImgId = _currentId++;
         _imageDataSet.Add(imageData);
     }
 

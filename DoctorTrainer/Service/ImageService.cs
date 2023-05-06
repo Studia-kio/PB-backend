@@ -3,7 +3,7 @@
 public class ImageService
 {
     private const string ImgPath = ""; // temporary, for testing reasons
-    private long _currentId = 0; // temporary, for testing reasons
+    private static long _currentId = 0; // temporary, for testing reasons
 
     public ImageService()
     {

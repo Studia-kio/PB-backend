@@ -1,4 +1,6 @@
 using System.Text;
+using DoctorTrainer.Repository;
+using DoctorTrainer.Service;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 
@@ -13,15 +15,14 @@ builder.Services.AddSwaggerGen();
 //builder.Services.AddDbContext<ApplicationDbContext>();
 
 // repositories
-//builder.Services.AddScoped<UserRepository>();
-//builder.Services.AddScoped<UserStopRepository>();
+builder.Services.AddScoped<UserRepository>();
 
 // services
-//builder.Services.AddScoped<ZtmStopService>();
-//builder.Services.AddScoped<UserService>();
-//builder.Services.AddScoped<UserStopService>();
+builder.Services.AddScoped<ImageDataService>();
+builder.Services.AddScoped<ImageService>();
+builder.Services.AddScoped<UserService>();
 
-/*
+
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
@@ -31,14 +32,15 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidateAudience = true,
             ValidateLifetime = true,
             ValidateIssuerSigningKey = true,
-            ValidIssuer = "https://localhost:7146/",
-            ValidAudience = "https://localhost:7146/",
+            ValidIssuer = "https://localhost:7171/",
+            ValidAudience = "https://localhost:7171/",
             IssuerSigningKey = new SymmetricSecurityKey(
+                // todo: store the key in a secure way!!!
                 Encoding.UTF8.GetBytes("DhftOS5uphK3vmCJQrexST1RsyjZBjXWRgJMFPU4")
             )
         };
     });
-*/
+
 builder.Services.AddMvc();
 
 builder.Services.AddCors();

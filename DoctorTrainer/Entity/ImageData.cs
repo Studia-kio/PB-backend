@@ -9,6 +9,8 @@ public class ImageData
     public Dictionary<string, string> MedicalParams { get; set; }
     public List<Circle> MarkedRegions { get; set; }
 
+    public ImageData(){}
+    
     public ImageData(long imgId, Category category)
     {
         ImgId = imgId;
