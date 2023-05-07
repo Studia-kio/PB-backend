@@ -2,8 +2,9 @@
 
 public class ImageService
 {
-    private const string ImgPath = ""; // temporary, for testing reasons
-    private static long _currentId = 0; // temporary, for testing reasons
+    private const string ImgPath = @"C:\Users\theKonfyrm\RiderProjects\DoctorTrainer\DoctorTrainer\ImagesTmp\"; // todo: temporary, for testing reasons
+    private const string ImgUrl = "https://localhost:7171/ImagesTmp/"; // todo: also temporary
+    private static long _currentId = 0; // todo: temporary, for testing reasons
 
     public ImageService()
     {
@@ -20,9 +21,11 @@ public class ImageService
         return _currentId;
     }
 
-    public string GetImageUrl(long id)
+    public async Task<byte[]> GetImageBytes(long id)
     {
-        return ImgPath + id + ".jpg"; // todo: pomyslec jak bedzie mozna pzekazywac te obrazki jak juz AI bedzie, bo moze to byc tricky troche...
+        // todo: pomyslec jak bedzie mozna pzekazywac te obrazki jak juz AI bedzie, bo moze to byc tricky troche...
+        string url = ImgUrl + id + ".jpg";
+        return File.ReadAllBytes(url);;
     }
 
     public void RemoveImage(long id)

@@ -17,13 +17,15 @@ public class LoginController : ControllerBase
 {
     private readonly PasswordHasher<string> _passwordHasher;
 
+    private readonly IConfiguration _configuration;
     private readonly UserService _userService;
 
-    public LoginController(UserService userService)
+    public LoginController(UserService userService, IConfiguration configuration)
     {
         _passwordHasher = new PasswordHasher<string>();
         _userService = userService;
-
+        _configuration = configuration;
+            
         // todo: temporary adding users (remove after DB will be created)
         _userService.AddUser(
             new User()
@@ -34,7 +36,7 @@ public class LoginController : ControllerBase
         _userService.AddUser(
             new User()
             {
-                Id = 2, PasswordHash = _passwordHasher.HashPassword(null, "admin"), Username = "expert",
+                Id = 2, PasswordHash = _passwordHasher.HashPassword(null, "expert"), Username = "expert",
                 Role = UserRole.Expert.ToString()
             });
         _userService.AddUser(new User()
@@ -64,8 +66,7 @@ public class LoginController : ControllerBase
     private string Generate(User user)
     {
         var securityKey = new SymmetricSecurityKey(
-            // todo: store the key in a seure way
-            Encoding.UTF8.GetBytes("DhftOS5uphK3vmCJQrexST1RsyjZBjXWRgJMFPU4")
+            Encoding.UTF8.GetBytes(_configuration["SigningKey"])
         );
         var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
         var claims = new[]
@@ -73,12 +74,13 @@ public class LoginController : ControllerBase
             new Claim(ClaimTypes.NameIdentifier, user.Username),
             new Claim(ClaimTypes.Role, user.Role)
         };
-
+        
+        // todo: does the token refresh????
         var token = new JwtSecurityToken(
-            "https://localhost:7146/",
-            "https://localhost:7146/",
+            "https://localhost:7171/",
+            "https://localhost:7171/",
             claims,
-            expires: DateTime.Now.AddMinutes(30), // todo: make token validity time configurable
+            expires: DateTime.Now.AddMinutes(int.Parse(_configuration["TokenTimeoutMinutes"])),
             signingCredentials: credentials
         );
         return new JwtSecurityTokenHandler().WriteToken(token);

@@ -22,7 +22,6 @@ builder.Services.AddScoped<ImageDataService>();
 builder.Services.AddScoped<ImageService>();
 builder.Services.AddScoped<UserService>();
 
-
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
@@ -35,8 +34,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidIssuer = "https://localhost:7171/",
             ValidAudience = "https://localhost:7171/",
             IssuerSigningKey = new SymmetricSecurityKey(
-                // todo: store the key in a secure way!!!
-                Encoding.UTF8.GetBytes("DhftOS5uphK3vmCJQrexST1RsyjZBjXWRgJMFPU4")
+                Encoding.UTF8.GetBytes(builder.Configuration["SigningKey"])
             )
         };
     });
@@ -63,3 +61,4 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+

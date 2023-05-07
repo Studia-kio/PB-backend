@@ -4,6 +4,7 @@ namespace DoctorTrainer.DTO;
 
 public class ImageDataDto
 {
+    public long ImageId { get; set; }
     public Category Category { get; set; }
     public Dictionary<string, string> MedicalParams { get; set; }
     public List<Circle> MarkedRegions { get; set; }
@@ -21,6 +22,7 @@ public class ImageDataDto
 
         return new ImageDataDto()
         {
+            ImageId = data.ImgId,
             Category = new Category()
             {
                 Type = data.Category.Type,
@@ -45,6 +47,7 @@ public class ImageDataDto
 
         return new ImageData()
         {
+            ImgId = dto.ImageId,
             Category = new Category()
             {
                 Type = dto.Category.Type,

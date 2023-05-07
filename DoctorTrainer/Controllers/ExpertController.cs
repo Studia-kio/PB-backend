@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace DoctorTrainer.Controllers;
 
 [ApiController]
-[Authorize(Roles = "Admin,Expert")]
+//[Authorize(Roles = "Admin,Expert")]
 public class ExpertController : ControllerBase
 {
     private readonly ImageDataService _imageDataService;
@@ -39,13 +39,6 @@ public class ExpertController : ControllerBase
         ImageData data = ImageDataDto.DtoToEntityMapper(request);
         _imageDataService.SaveImageData(data);
         return new JsonResult(HttpStatusCode.OK);
-    }
-
-    [HttpPut]
-    [Route("/api/expert/{imgId}")]
-    public JsonResult UpdateImageData(long imgId, ImageDataDto request)
-    {
-        throw new NotImplementedException();
     }
 
     [HttpDelete]

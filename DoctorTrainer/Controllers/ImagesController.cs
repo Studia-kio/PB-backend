@@ -1,9 +1,7 @@
 ﻿using System.Net;
-using DoctorTrainer.DTO;
 using DoctorTrainer.Service;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.IdentityModel.Tokens;
 
 namespace DoctorTrainer.Controllers;
 
@@ -19,31 +17,29 @@ public class ImagesController : ControllerBase
 
     [HttpGet]
     [Route("/api/images/{imgId}")]
-    [Authorize]
-    public JsonResult GetImage(long imgId)
+    //[Authorize]
+    public async Task<IActionResult> GetImage(long imgId)
     {
-        string url = _imageService.GetImageUrl(imgId);
-        if (url.IsNullOrEmpty())
-        {
-            return new JsonResult(HttpStatusCode.NotFound);
-        }
-        return new JsonResult(url);
+        byte[] b = await _imageService.GetImageBytes(imgId);
+        return File(b, "image/jpeg");
     }
 
     [HttpPost]
     [Route("/api/images")]
-    [Authorize(Roles = "Expert,Admin")]
-    public async Task<JsonResult> AddImage(ImageDto request)
+    //[Authorize(Roles = "Expert,Admin")]
+    [Consumes("multipart/form-data")]
+    public async Task<JsonResult> AddImage(IFormFile file)
     {
-        if (request == null || request.Bytes == null)
+        if (file == null || file.Length == 0)
         {
             return new JsonResult(HttpStatusCode.BadRequest);
         }
-
         try
         {
-            await _imageService.AddImage(request.Bytes);
-            return new JsonResult(HttpStatusCode.OK);
+            var memoryStream = new MemoryStream();
+            await file.OpenReadStream().CopyToAsync(memoryStream);
+            long id = await _imageService.AddImage(memoryStream.ToArray());
+            return new JsonResult(id);
         }
         catch
         {
@@ -53,13 +49,9 @@ public class ImagesController : ControllerBase
 
     [HttpDelete]
     [Route("/api/images/{imgId}")]
-    [Authorize(Roles = "Expert,Admin")]
+    //[Authorize(Roles = "Expert,Admin")]
     public JsonResult DeleteImage(long imgId)
     {
-        if (_imageService.GetImageUrl(imgId).IsNullOrEmpty())
-        {
-            return new JsonResult(HttpStatusCode.NotFound);
-        }
         _imageService.RemoveImage(imgId);
         return new JsonResult(HttpStatusCode.Accepted);
     }
