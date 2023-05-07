@@ -1,4 +1,7 @@
-﻿using DoctorTrainer.DTO;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using DoctorTrainer.DTO;
 using DoctorTrainer.Entity;
 using Microsoft.AspNetCore.Identity;
 

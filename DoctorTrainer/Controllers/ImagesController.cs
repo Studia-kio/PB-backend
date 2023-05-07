@@ -1,6 +1,9 @@
-﻿using System.Net;
+﻿using System.IO;
+using System.Net;
+using System.Threading.Tasks;
 using DoctorTrainer.Service;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DoctorTrainer.Controllers;

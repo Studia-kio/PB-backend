@@ -1,4 +1,5 @@
-﻿using DoctorTrainer.DTO;
+﻿using System.Collections.Generic;
+using DoctorTrainer.DTO;
 
 namespace DoctorTrainer.Entity;
 

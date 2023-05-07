@@ -1,4 +1,7 @@
-﻿namespace DoctorTrainer.Service;
+﻿using System.IO;
+using System.Threading.Tasks;
+
+namespace DoctorTrainer.Service;
 
 public class ImageService
 {
