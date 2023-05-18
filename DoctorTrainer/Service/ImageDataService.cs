@@ -23,6 +23,16 @@ public class ImageDataService
         _repository.Save(imageData);
     }
 
+    public void UpdateImageData(long id, ImageData imageData)
+    {
+        ImageData? data = _repository.FindById(id);
+        if (data != null)
+        {
+            _repository.Delete(data);
+        }
+        _repository.Save(imageData);
+    }
+
     public void DeleteImageData(long id)
     {
         ImageData? data = _repository.FindById(id);

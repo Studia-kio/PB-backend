@@ -54,5 +54,21 @@ public class ExpertController : ControllerBase
         _imageDataService.DeleteImageData(imgId);
         return new JsonResult(HttpStatusCode.OK);
     }
-    
+
+    [HttpPut]
+    [Route("/api/expert/{imgId}")]
+    public JsonResult UpdateImageData(long imgId, ImageDataDto request)
+    {
+        request.ImageId = imgId;
+        ImageData? data = _imageDataService.FindImageData(imgId);
+        if (data == null)
+        {
+            return new JsonResult(HttpStatusCode.NotFound);
+        }
+
+        data = ImageDataDto.DtoToEntityMapper(request);
+
+        _imageDataService.UpdateImageData(imgId, data);
+        return new JsonResult(HttpStatusCode.OK);
+    }
 }
