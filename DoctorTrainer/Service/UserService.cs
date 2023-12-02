@@ -28,9 +28,9 @@ public class UserService
         return _userRepository.FindByUsername(username);
     }
 
-    public void AddUser(User user)
+    public int AddUser(User user)
     {
-        _userRepository.Save(user);
+        return _userRepository.Save(user);
     }
 
     public void Update(User user)

@@ -1,9 +1,8 @@
 using System.Text;
+using DoctorTrainer.Data;
 using DoctorTrainer.Repository;
 using DoctorTrainer.Service;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,21 +13,24 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-//builder.Services.AddDbContext<ApplicationDbContext>();
+builder.Services.AddDbContext<ApplicationDbContext>();
 
 // repositories
 builder.Services.AddScoped<UserRepository>();
+builder.Services.AddScoped<UserTokenRepository>();
 
 // services
 builder.Services.AddScoped<ImageDataService>();
 builder.Services.AddScoped<ImageService>();
 builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<RefreshTokenService>();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
         options.TokenValidationParameters = new TokenValidationParameters()
         {
+            ClockSkew = TimeSpan.Zero,
             ValidateIssuer = true,
             ValidateAudience = true,
             ValidateLifetime = true,
@@ -63,4 +65,3 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
-

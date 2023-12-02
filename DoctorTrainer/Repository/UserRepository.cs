@@ -1,44 +1,47 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using DoctorTrainer.DTO;
+﻿using DoctorTrainer.Data;
 using DoctorTrainer.Entity;
-using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace DoctorTrainer.Repository;
 
 public class UserRepository
 {
-    // todo: connect to database later on
-    private List<User> _users;
+    private readonly ApplicationDbContext _context;
 
-    public UserRepository()
+    public UserRepository(ApplicationDbContext context)
     {
-        _users = new List<User>();
+        _context = context;
     }
-
+    
     public User? FindById(int id) =>
-        _users.FirstOrDefault(s => s.Id == id);
+        _context.Users
+            .FirstOrDefault(s => s.Id == id);
 
     public User? FindByUsername(string username) =>
-        _users.FirstOrDefault(s => s.Username.Equals(username));
+        _context.Users
+            .FirstOrDefault(s => s.Username.Equals(username));
 
     public List<User> FindAll() =>
-        _users.ToList();
+        _context.Users
+            .ToList();
 
-    public void Save(User user)
+    public int Save(User user)
     {
-        _users.Add(user);
+        EntityEntry<User> saved = _context.Users.Add(user);
+        _context.SaveChanges();
+        return saved.Entity.Id;
     }
 
     public void Update(User user)
     {
-        throw new NotImplementedException();
+        _context.Users.Update(user);
+        _context.SaveChanges();
     }
 
     public void Delete(User user)
     {
-        _users.Remove(user);
+        _context.Users.Remove(user);
+        _context.SaveChanges();
     }
     
 }
