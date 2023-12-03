@@ -25,7 +25,7 @@ public class DataInitializerController : ControllerBase
     [HttpPost]
     [Route("/api/init")]
     [AllowAnonymous]
-    public JsonResult Initialize()
+    public IActionResult Initialize()
     {
         _userService.AddUser(
             new User()
@@ -44,7 +44,7 @@ public class DataInitializerController : ControllerBase
             Id = 3, PasswordHash = _passwordHasher.HashPassword(null, "user"), Username = "user",
             Role = UserRole.User.ToString()
         });
-        return new JsonResult("");
+        return Ok();
     }
     
 }

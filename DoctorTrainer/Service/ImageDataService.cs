@@ -5,40 +5,45 @@ namespace DoctorTrainer.Service;
 
 public class ImageDataService
 {
-    private readonly ImageDataMockRepository _repository;
+    private readonly ImageDataRepository _imageDataRepository;
 
-    public ImageDataService()
+    public ImageDataService(ImageDataRepository imageDataRepository)
     {
-        // todo: temporary solution for testing purposes, remove later on
-        _repository = new ImageDataMockRepository();
+        _imageDataRepository = imageDataRepository;
     }
 
-    public ImageData? FindImageData(long id)
+    public List<ImageData> FindAllImageData()
     {
-        return _repository.FindById(id);
+        return _imageDataRepository.FindAll();
+    }
+    
+    public ImageData? FindDataByImageId(string imageId)
+    {
+        return _imageDataRepository.FindByImageId(imageId);
     }
 
     public void SaveImageData(ImageData imageData)
     {
-        _repository.Save(imageData);
+        _imageDataRepository.Save(imageData);
     }
 
-    public void UpdateImageData(long id, ImageData imageData)
+    public void UpdateImageData(string imageId, ImageData imageData)
     {
-        ImageData? data = _repository.FindById(id);
+        ImageData? data = _imageDataRepository.FindByImageId(imageId);
         if (data != null)
         {
-            _repository.Delete(data);
+            _imageDataRepository.Delete(data);
         }
-        _repository.Save(imageData);
+        _imageDataRepository.Save(imageData);
     }
 
-    public void DeleteImageData(long id)
+    public void DeleteImageData(string imageId)
     {
-        ImageData? data = _repository.FindById(id);
+        ImageData? data = _imageDataRepository.FindByImageId(imageId);
         if (data != null)
         {
-            _repository.Delete(data);
+            _imageDataRepository.Delete(data);
         }
     }
+    
 }

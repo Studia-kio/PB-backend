@@ -1,42 +1,73 @@
-﻿using System.IO;
-using System.Threading.Tasks;
+﻿using DoctorTrainer.Entity;
+using DoctorTrainer.Repository;
 
 namespace DoctorTrainer.Service;
 
 public class ImageService
 {
-    private const string ImgPath = @"C:\Users\theKonfyrm\RiderProjects\DoctorTrainer\DoctorTrainer\ImagesTmp\"; // todo: temporary, for testing reasons
-    private const string ImgUrl = "https://localhost:7171/ImagesTmp/"; // todo: also temporary
-    private static long _currentId = 0; // todo: temporary, for testing reasons
-
-    public ImageService()
+    private readonly IConfiguration _configuration;
+    private readonly ImageDataRepository _imageDataRepository;
+    
+    public ImageService(IConfiguration configuration, ImageDataRepository imageDataRepository)
     {
+        _configuration = configuration;
+        _imageDataRepository = imageDataRepository;
     }
 
-    public async Task<long> AddImage(byte[] imageData)
+    public async Task<string> AddImage(byte[] imageBytes, string filename)
     {
-        _currentId++;
-        using (var stream = new FileStream(ImgPath + _currentId + ".jpg", FileMode.Create))
+        string fileId = Guid.NewGuid().ToString();
+        string extension = Path.GetExtension(filename);
+        string imgPath = GetImagePath(extension);
+
+        using (var stream = new FileStream(imgPath + fileId + extension, FileMode.Create))
         {
-            await stream.WriteAsync(imageData);
+            await stream.WriteAsync(imageBytes);
         }
 
-        return _currentId;
+        return fileId;
     }
 
-    public async Task<byte[]> GetImageBytes(long id)
+    public async Task<byte[]> GetImageBytes(string id)
     {
-        // todo: pomyslec jak bedzie mozna pzekazywac te obrazki jak juz AI bedzie, bo moze to byc tricky troche...
-        string url = ImgUrl + id + ".jpg";
+        ImageData data = _imageDataRepository.FindByImageId(id);
+        string url = GetImagePath(Path.GetExtension(data.Filename)) + data.Filename;
         return File.ReadAllBytes(url);;
     }
 
-    public void RemoveImage(long id)
+    public bool RemoveImage(string id)
     {
-        string path = ImgPath + id + ".jpg";
+        ImageData data = _imageDataRepository.FindByImageId(id);
+
+        string path = GetFilePath(data);
         if (File.Exists(path))
         {
             File.Delete(path);
+            return true;
         }
+
+        return false;
     }
+
+    public string GetFilePath(ImageData metadata)
+    {
+        return GetImagePath(Path.GetExtension(metadata.Filename)) + "/" + metadata.Filename;
+    }
+    
+    private string GetImagePath(string extension)
+    {
+        // switch (extension)
+        // {
+        //     case ".png":
+        //         return _configuration["BaseFilePath"] + "/png";
+        //     case ".jpg":
+        //         return _configuration["BaseFilePath"] + "/jpg";
+        //     case ".pgm":
+        //         return _configuration["BaseFilePath"] + "/pgm";
+        //     default:
+        //         throw new ArgumentException($"Unsupported file format: {extension}");
+        // }
+        return _configuration["BaseFilePath"] + "/";
+    }
+    
 }

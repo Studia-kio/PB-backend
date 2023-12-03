@@ -1,3 +1,4 @@
+using DoctorTrainer.DTO;
 using DoctorTrainer.Entity;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,7 +9,8 @@ public class ApplicationDbContext : DbContext
     
     public DbSet<User>? Users { get; set; }
     public DbSet<UserToken>? UserTokens { get; set; }
-    //public DbSet<ImageData>? ImagesData { get; set; }
+    public DbSet<ImageData>? ImagesData { get; set; }
+    public DbSet<Circle>? Circles { get; set; }
     
     public ApplicationDbContext() : base()
     {
@@ -16,9 +18,7 @@ public class ApplicationDbContext : DbContext
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        //modelBuilder.Entity<User>();
-        // .HasMany(u => u.BookmarkedStops)
-        // .WithOne(b => b.User);
+        base.OnModelCreating(modelBuilder);
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

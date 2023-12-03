@@ -18,12 +18,14 @@ builder.Services.AddDbContext<ApplicationDbContext>();
 // repositories
 builder.Services.AddScoped<UserRepository>();
 builder.Services.AddScoped<UserTokenRepository>();
+builder.Services.AddScoped<ImageDataRepository>();
 
 // services
 builder.Services.AddScoped<ImageDataService>();
 builder.Services.AddScoped<ImageService>();
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<RefreshTokenService>();
+builder.Services.AddScoped<ImageAnalysisService>();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>

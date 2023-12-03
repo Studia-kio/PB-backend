@@ -5,7 +5,7 @@ namespace DoctorTrainer.DTO;
 
 public class ImageDataDto
 {
-    public long ImageId { get; set; }
+    public string ImageId { get; set; }
     public Category Category { get; set; }
     public Dictionary<string, string> MedicalParams { get; set; }
     public List<Circle> MarkedRegions { get; set; }
