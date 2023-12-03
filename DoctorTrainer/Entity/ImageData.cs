@@ -45,7 +45,12 @@ public class ImageData
     {
         MedicalParams = new Dictionary<string, string>();
         MarkedRegions = new List<Circle>();
-        CategoryJson = "";
+        Category = new Category()
+        {
+            Index = 0,
+            Organ = Organ.Unknown,
+            Type = ImageType.Unknown
+        };
     }
     
     public ImageData(string imgId, string filename, Category category)

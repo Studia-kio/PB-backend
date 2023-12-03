@@ -2,6 +2,7 @@
 
 public enum ImageType
 {
+    Unknown,
     Mri,
     Usg,
 }

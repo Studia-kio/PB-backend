@@ -24,7 +24,7 @@ public class ImageDataDto
         return new ImageDataDto()
         {
             ImageId = data.ImgId,
-            Category = new Category()
+            Category = new Category()//todo: always create a basic category when initializing!!!
             {
                 Type = data.Category.Type,
                 Organ = data.Category.Organ,
